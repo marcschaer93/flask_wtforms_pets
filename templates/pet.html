@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%block title%}Pet{%endblock%}
+
+{# {% block title %}Home{% endblock %} #}
+
+{% block content %}
+    <h1 class="display-1 text-center">{{pet.name}}</h1>
+    <div class="container justify-content">
+        <img src="{{pet.photo_url}}" alt="pet image" style="width:50%">
+        <ul class="list-group">
+            <li class="list-group-item">Name: {{pet.name}}</li>
+            <li class="list-group-item">Species: {{pet.species}}</li>
+            <li class="list-group-item">Age: {{pet.age}}</li>
+            <li class="list-group-item">Notes: {{pet.notes}}</li>
+            <li class="list-group-item">{% if pet.available %} <b style="color: green;"> is available!</b> {% endif %}</li>
+        </ul>
+    </div>
+    <button onclick="window.location.href='/'" class="btn btn-outline-danger">Back</button>
+    <button class="btn btn-primary" onclick="window.location.href='/{{pet.id}}/edit'">Edit</button>
+    <button class="btn btn-success" onclick="window.location.href='/add'">Add a Pet</button>
+
+{% endblock %}
+
+
+
+ 

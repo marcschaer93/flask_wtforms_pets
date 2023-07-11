@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{%block title%}Home{%endblock%}
+
+{% block content %}
+<div class="container" style="width: 90%;">
+    <h1 class="display-1 text-center" >Pets</h1>
+    <div class="row">
+            {%if pets%}
+            {% for pet in pets %}
+        <div class="col-md-3">
+            <div class="img-thumbnail">
+                <a href="/{{pet.id}}" target="_blank">
+                <img src="{{ pet.photo_url }}" alt="pet_photo" style="height: 200px">
+                <div class="caption">
+                    <p>{{pet.name}}</p>
+                </div>
+                </a>
+            </div>
+        </div>
+            {% endfor %}
+            {%else%}
+            <p class="color: red">Currently NO pets available</p>
+            {%endif%}
+    </div>
+    <div>
+        <button class="btn btn-primary" onclick="window.location.href='/add'">Add a Pet</button>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
